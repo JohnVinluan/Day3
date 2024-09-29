@@ -1,0 +1,18 @@
+router eigrp 100
+network 10.1.4.4 0.0.0.3
+network 10.2.1.0 0.0.0.255
+network 10.2.2.0 0.0.0.255
+network 192.168.1.128 0.0.0.31
+
+router ospf 100
+network 10.1.4.4 0.0.0.3 area 0
+network 10.2.1.0 0.0.0.255 area 0
+network 10.2.2.0 0.0.0.255 area 0
+network 192.168.1.128 0.0.0.31 area 0
+
+router bgp 100
+network 10.1.4.4 mask 255.255.255.252 (4th 4i)
+network 10.2.1.0 mask 255.255.255.0  
+network 10.2.2.0 mask 255.255.255.0
+network 192.168.1.128 mask 255.255.255.224
+
